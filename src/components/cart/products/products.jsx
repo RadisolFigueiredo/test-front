@@ -23,6 +23,9 @@ export default class Products extends Component {
       <div classNam="product-list">
         {this.state.products.map(product => (
           <div key={product._id}>
+            <img
+              src={product.product.imageObjects[0].small} alt="product"
+            />
             <p>
               {product.product.name}
             </p>
@@ -33,7 +36,6 @@ export default class Products extends Component {
             </p>
           </div>
           ))}
-
       </div>
     )
   }
