@@ -1,0 +1,18 @@
+#main-header {
+  border: 1px solid white;
+  box-shadow: 0px 5px 20px -15px black;
+
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: space-evenly;
+}
+
+
+.container > li {
+  color: #cccccc;
+  font-weight: bolder;
+}
