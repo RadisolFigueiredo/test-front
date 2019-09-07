@@ -20,9 +20,11 @@ export default class Products extends Component {
 
   render() {
     return (
-      <div id="product-list">
+      <div className="container">
+        <h1>Produtos</h1>
+        <div id="products-list">
         {this.state.products.map(product => (
-          <div className="card" key={product._id}>
+          <div className="cards" key={product._id}>
             <img src={product.product.imageObjects[0].small} alt="product" />
             <p>{product.product.name}</p>
             <p>
@@ -30,6 +32,7 @@ export default class Products extends Component {
             </p>
           </div>
         ))}
+        </div>
       </div>
     )
   }

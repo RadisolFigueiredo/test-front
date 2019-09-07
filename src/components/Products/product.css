@@ -1,3 +1,9 @@
+div > h1 {
+  color: #999999;
+  font-weight: bolder;
+  padding: 0 20px;
+}
+
 #product-list {
   width: 80%;
   margin: 20px auto 0;
@@ -21,6 +27,4 @@
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-
-
 }
