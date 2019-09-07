@@ -1,20 +1,22 @@
-import React from 'react';
-import './header.css';
+import React from 'react'
+import './header.css'
 
-let listHeader = ['SACOLA','PAGAMENTO','CONFIRMAÇÃO'];
-
-
+let listHeader = ['SACOLA', 'PAGAMENTO', 'CONFIRMAÇÃO']
 
 const Header = () => (
-  <header id="main-header">
-    <ul className="container">
-      {listHeader.map((list) => {
-        return <li className="d-inline" key={list}>
-          {list}
-        </li>
-      })}
-    </ul>
-  </header>
-);
+  <div id="main-header" className="container">
+    <div className="row">
+      <ul className="steps">
+        {listHeader.map(list => {
+          return (
+            <div>
+              <li key={list}>{list}</li>
+            </div>
+          )
+        })}
+      </ul>
+    </div>
+  </div>
+)
 
-export default Header;
+export default Header
