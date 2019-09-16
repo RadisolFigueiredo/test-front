@@ -23,17 +23,27 @@ export default class Products extends Component {
       <div className="background">
         <div className="container">
           <div className="product-h3">
-          <h3>PRODUTOS</h3>
+            <h3>PRODUTOS</h3>
           </div>
           <div className="row">
             <div id="products-list">
               {this.state.products.map(product => (
                 <div className="cards" key={product._id}>
-                  <img src={product.product.imageObjects[0].small} alt="product" />
-                  <p>{product.product.name}</p>
-                  <p>
-                    <b>{'R$ ' + product.product.priceSpecification.originalPrice.toFixed(2)}</b>
-                  </p>
+                  <div className="align-products">
+                    <div className="align-img">
+                      <img
+                        className="img-product"
+                        src={product.product.imageObjects[0].small}
+                        alt="product"
+                      />
+                    </div>
+                    <div className="name-price">
+                      <p className="name-product">{product.product.name}</p>
+                      <p className="price-product">
+                        {'R$ ' + product.product.priceSpecification.originalPrice.toFixed(2)}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

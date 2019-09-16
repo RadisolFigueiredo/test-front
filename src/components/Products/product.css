@@ -8,27 +8,21 @@ div > h3 {
 }
 
 .product-h3 {
+  margin-top: 5px;
   display: flex;
-  justify-content: center;
-  align-content: start;
-  /* width: 80%; */
-  border: 1px solid red;
-  width: 100%;
+  justify-content: flex-start;
 }
 
 div > h3 {
+  width: 30%;
   display: flex;
   justify-content: center;
-  width: 80%;
-  /* margin: 10px 90px 0; */
-  border: 1px solid red;
-
 }
 
 #products-list {
   background: #fff;
   width: 80%;
-  margin: 20px auto 0;
+  margin: auto;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
@@ -40,12 +34,37 @@ div > h3 {
 .cards {
   width: 95%;
   margin-top: 20px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
-  /* justify-content: center; */
-  /* align-content: center; */
   border: 1px solid #ddd;
   border-radius: 8px;
+}
+
+.align-products {
+  width: 100%;
+  display: flex;
+}
+
+/* .align-img {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.name-price {
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name-product {
+  margin: 0;
+}
+
+.price-product {
+  margin: 30px 0 0 0;
+  font-weight: bolder;
+  display: flex;
+  justify-content: flex-end;
 }
 
 
