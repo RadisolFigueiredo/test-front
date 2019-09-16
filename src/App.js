@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Products from './components/Products/products'
-import Header from './components/Header/header';
-
+import Header from './components/Header/header'
+import { Provider } from 'react-redux' //responsável por atualizar o componente da aplicação quando houver mudanças
+import store from './Store/index';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Products />
-      </div>
-    );
+      <Provider store={store}>
+        <div>
+          <Header />
+          <Products />
+        </div>
+      </Provider>
+    )
   }
 }
 
-export default App;
+export default App

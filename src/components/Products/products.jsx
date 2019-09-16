@@ -1,25 +1,38 @@
 import React, { Component } from 'react'
 import api from '../../Services/api'
 import './product.css'
+import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import * as headersActions from '../../Actions/header';
 
-export default class Products extends Component {
-  state = {
-    products: [],
-    cart: []
+class Products extends Component {
+  constructor(props) {
+    super(props);
+
+    console.log(props)
+    this.state = {
+      products: [],
+      cart: []
+    }
   }
+
+  nextActiveHeader = () => {
+    this.props.headerActive();
+  }
+
+  // state = {
+  //   products: [],
+  //   cart: []
+  // }
 
   componentDidMount() {
     this.loadApi()
-    // this.loadCart()
   }
 
   loadApi = async () => {
     const response = await api.get('http://www.mocky.io/v2/5b15c4923100004a006f3c07')
 
     this.setState({ products: response.data.items, cart: response.data })
-
-    console.log(this.state.products)
-    console.log(this.state.cart)
   }
 
   render() {
@@ -74,7 +87,7 @@ export default class Products extends Component {
             </div>
           </div>
           <div>
-            <button type="button" class="btn btn-lg btn-block">
+            <button onClick={this.nextActiveHeader} type="button" class="btn btn-lg btn-block">
               SEGUIR PARA O PAGAMENTO
             </button>
           </div>
@@ -83,3 +96,7 @@ export default class Products extends Component {
     )
   }
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators(headersActions, dispatch);
+
+export default connect(null, mapDispatchToProps)(Products);
