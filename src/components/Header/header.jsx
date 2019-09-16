@@ -1,7 +1,7 @@
 import React from 'react'
 import './header.css'
 
-let listHeader = ['SACOLA', 'PAGAMENTO', 'CONFIRMAÇÃO']
+const listHeader = ['SACOLA', 'PAGAMENTO', 'CONFIRMAÇÃO']
 
 const Header = () => (
   <div id="main-header" className="container">
@@ -17,6 +17,6 @@ const Header = () => (
       </ul>
     </div>
   </div>
-)
+);
 
 export default Header
