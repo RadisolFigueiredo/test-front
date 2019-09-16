@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import api from '../../Services/api'
 import './product.css'
-import { totalmem } from 'os'
 
 export default class Products extends Component {
   state = {
@@ -10,27 +9,21 @@ export default class Products extends Component {
   }
 
   componentDidMount() {
-    this.loadProducts()
+    this.loadApi()
     // this.loadCart()
   }
 
-  loadProducts = async () => {
+  loadApi = async () => {
     const response = await api.get('http://www.mocky.io/v2/5b15c4923100004a006f3c07')
 
-    console.log(response.data)
+    this.setState({ products: response.data.items, cart: response.data })
 
-    this.setState({ products: response.data.items })
-  }
-
-  loadCart = async () => {
-    const response = await api.get('http://www.mocky.io/v2/5b15c4923100004a006f3c07')
-
-    this.setState({ cart: response.data })
-
-    console.log(response.data.subTotal)
+    console.log(this.state.products)
+    console.log(this.state.cart)
   }
 
   render() {
+    const cart = this.state.cart
     return (
       <div className="background">
         <div className="container">
@@ -61,15 +54,29 @@ export default class Products extends Component {
             </div>
           </div>
           <div className="cart-finish">
-            <div className="align-cart">
-              <p>PRODUTOS</p>
-              <p>FRETE</p>
-              <p>DESCONTO</p>
-              <p><b>TOTAL</b></p>
+            <div className="cart">
+              <div className="align-cart">
+                <p>PRODUTOS</p>
+                <p>{'R$ ' + Number(cart.subTotal).toFixed(2)}</p>
+              </div>
+              <div className="align-cart">
+                <p>FRETE</p>
+                <p>{'R$ ' + Number(cart.shippingTotal).toFixed(2)}</p>
+              </div>
+              <div className="align-cart discount-color">
+                <p>DESCONTO</p>
+                <p>{'- R$ ' + Number(cart.discount).toFixed(2)}</p>
+              </div>
+              <div className="align-cart total-bold">
+                <p>TOTAL</p>
+                <p>{'R$ ' + Number(cart.subTotal + cart.shippingTotal - cart.discount).toFixed(2)}</p>
+              </div>
             </div>
           </div>
           <div>
-            <button type="button" class="btn btn-lg btn-block">SEGUIR PARA O PAGAMENTO</button>
+            <button type="button" class="btn btn-lg btn-block">
+              SEGUIR PARA O PAGAMENTO
+            </button>
           </div>
         </div>
       </div>

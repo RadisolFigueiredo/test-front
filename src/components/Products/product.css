@@ -71,7 +71,7 @@ div > h3 {
   margin: 20px auto;
 }
 
-.align-cart {
+.cart {
   width: 96%;
   flex-direction: column;
   display: flex;
@@ -91,6 +91,20 @@ div > button {
   justify-content: center;
   border-radius: 8px;
 
+}
+
+.align-cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.discount-color {
+  color: #ff6c00;
+}
+
+.total-bold {
+  font-weight: bold;
 }
 
 
