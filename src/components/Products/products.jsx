@@ -20,18 +20,24 @@ export default class Products extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>Produtos</h1>
-        <div id="products-list">
-        {this.state.products.map(product => (
-          <div className="cards" key={product._id}>
-            <img src={product.product.imageObjects[0].small} alt="product" />
-            <p>{product.product.name}</p>
-            <p>
-              <b>{'R$ ' + product.product.priceSpecification.originalPrice.toFixed(2)}</b>
-            </p>
+      <div className="background">
+        <div className="container">
+          <div className="product-h3">
+          <h3>PRODUTOS</h3>
           </div>
-        ))}
+          <div className="row">
+            <div id="products-list">
+              {this.state.products.map(product => (
+                <div className="cards" key={product._id}>
+                  <img src={product.product.imageObjects[0].small} alt="product" />
+                  <p>{product.product.name}</p>
+                  <p>
+                    <b>{'R$ ' + product.product.priceSpecification.originalPrice.toFixed(2)}</b>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     )
