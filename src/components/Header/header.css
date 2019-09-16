@@ -16,3 +16,7 @@ div > li {
   color: #cccccc;
   font-weight: bolder;
 }
+
+li :active {
+  color: #ff6c00;
+}
